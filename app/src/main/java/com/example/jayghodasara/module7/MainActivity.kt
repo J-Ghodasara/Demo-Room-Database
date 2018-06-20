@@ -12,8 +12,14 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
-open class MainActivity : AppCompatActivity() {
+open class MainActivity : AppCompatActivity(){
+
+//    override fun communicate( name:String, date: String) {
+////var insert:Insertfragment=Insertfragment()
+//        insert.comm(name,date)
+//    }
 
     companion object {
         public lateinit var fm: FragmentManager
@@ -38,6 +44,14 @@ open class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             fm =supportFragmentManager
+
+            var bundle:Bundle= Bundle()
+            bundle.putString("KEY_1","Enter Text")
+            bundle.putString("KEY_2","Select Date")
+            bundle.putString("KEY_3","UPDATE")
+            bundle.putString("KEY_4","id")
+
+            insertfragment.arguments=bundle
             fm.beginTransaction().replace(R.id.frame,insertfragment).addToBackStack(null).commit()
                }
     }

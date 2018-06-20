@@ -17,6 +17,6 @@ interface MyDao{
      @Query("select * from Mytable")
     fun getusers():List<Table>
 
-    @Query("select * from Mytable where Date=")
-    fun getusersdatewise():List<Table>
+    @Update
+    fun update(table: Table)
 }
